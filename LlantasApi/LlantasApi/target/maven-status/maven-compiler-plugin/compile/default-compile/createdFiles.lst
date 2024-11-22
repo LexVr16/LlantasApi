@@ -1,0 +1,6 @@
+com\maycollins\LlantasApi\repository\UserRepository.class
+com\maycollins\LlantasApi\controller\UserController.class
+com\maycollins\LlantasApi\LlantasApiApplication.class
+com\maycollins\LlantasApi\model\User.class
+com\maycollins\LlantasApi\service\UserService.class
+com\maycollins\LlantasApi\model\Producto.class
