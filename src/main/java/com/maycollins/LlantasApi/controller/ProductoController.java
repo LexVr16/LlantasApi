@@ -1,5 +1,6 @@
 package com.maycollins.LlantasApi.controller;
 
+import com.maycollins.LlantasApi.model.Producto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*")
 public class ProductoController {
 
-    @PostMapping
-    public ResponseEntity<Void> actualizarInvetario(@RequestParam Integer cantidad) {
+    @PatchMapping
+    public ResponseEntity<Void> actualizarStockPorIdProducto(@RequestBody Producto producto) {
         return ResponseEntity.ok().build();
     }
 }
