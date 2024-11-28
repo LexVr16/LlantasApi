@@ -1,39 +1,102 @@
 package com.maycollins.LlantasApi.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import java.time.LocalDateTime;
 
-import java.util.Date;
-
-@Data
 @Entity
-@Table(name = "users")
+@Table(name = "usuario")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer userId;
+    private String userId;
 
-    private String name;
-    private String lastName;
-    private String email;
+    @Column(name = "nombreusuario")
+    private String username;
+
+    @Column(name = "contraseña")
     private String password;
 
+    @Column(name = "rolusuario")
+    private String userRole;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date creationDate;
+    @Column(name = "estadousuario")
+    private Boolean userStatus;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastAccess;
+    @Column(name = "fecha_creacion")
+    private LocalDateTime createdAt;
 
-    private String phoneNumber;
-    private String address;
-    private String profileImage;
+    // Constructor vacío
+    public User() {
+    }
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private UserRole role;
+    // Constructor con parámetros
+    public User(String userId, String username, String password,
+                String userRole, Boolean userStatus, LocalDateTime createdAt) {
+        this.userId = userId;
+        this.username = username;
+        this.password = password;
+        this.userRole = userRole;
+        this.userStatus = userStatus;
+        this.createdAt = createdAt;
+    }
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private UserStatus status;
+    // Getters y Setters
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(String userRole) {
+        this.userRole = userRole;
+    }
+
+    public Boolean getUserStatus() {
+        return userStatus;
+    }
+
+    public void setUserStatus(Boolean userStatus) {
+        this.userStatus = userStatus;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId='" + userId + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", userRole='" + userRole + '\'' +
+                ", userStatus=" + userStatus +
+                ", createdAt=" + createdAt +
+                '}';
+    }
 }
